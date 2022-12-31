@@ -24,6 +24,7 @@
 <div class="w3-transparent">
   <button class="w3-button w3-transparent w3-xxxlarge"><a href="RevisionWeb.html">🏠</a></button>
   <button class="w3-button w3-transparent w3-xxxlarge" onclick="w3_open()">☰</button>
+  <p class="w3-button" id="para1"></p>
 </div>
 
 
@@ -31,11 +32,16 @@
   <h1 class="w3-animate-zoom w3-center w3-animate-bottom"><center><header class="MainTitle">Toby's Revision Website</header></center></h1>
 </div>
 
+<div class="w3-container">
+  <body>
+    <header class="w3-animate-zoom w3-center w3-animate-bottom SubTitle" id="lblGreetings"></header>
+  </body>
+</div>
 
+<img src="Div.png", width=1 height=20>
 <div class="w3-container">
   <h2 class="w3-animate-bottom"><center><h3 class="Subtitle">Welcome to Toby's Revision Website. There are many resources here to be used for revision or managing learning.</h3></center></h2>
 </div>
-
 <img src="Div.png", width=1 height=100>
 <h1 class="w3-animate-zoom w3-center w3-animate-bottom">
   <td>
@@ -48,4 +54,46 @@
   </h1>
 
 </head>
+
+
+
+
+<!DOCTYPE html>
+<html> 
+<head>
+</head>
+
+
+<script>
+    var myDate = new Date();
+    var hrs = myDate.getHours();
+
+    var greet;
+
+    if (hrs < 12)
+        greet = 'Good Morning';
+    else if (hrs >= 12 && hrs <= 17)
+        greet = 'Good Afternoon';
+    else if (hrs >= 17 && hrs <= 24)
+        greet = 'Good Evening';
+
+    document.getElementById('lblGreetings').innerHTML =
+        '<b>' + greet + '</b> and welcome to txbyjs.uk.to!';
+
+document.getElementById("para1").innerHTML = formatAMPM();
+
+function formatAMPM() {
+var d = new Date(),
+    minutes = d.getMinutes().toString().length == 1 ? '0'+d.getMinutes() : d.getMinutes(),
+    hours = d.getHours().toString().length == 1 ? '0'+d.getHours() : d.getHours(),
+    ampm = d.getHours() >= 12 ? 'pm' : 'am',
+    months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+    days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+return days[d.getDay()]+' '+months[d.getMonth()]+' '+d.getDate()+' '+d.getFullYear()+' '+hours+':'+minutes+ampm;
+}
+</script> 
+</html>
+
+
+
 </html>
